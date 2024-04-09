@@ -93,5 +93,6 @@ majorCities.addEventListener('click', function(event) {
 
 // Default city to display forecast
 const defaultCity = 'Toronto';
+
 // Call getWeather with default city on page load
 window.onload = () => getWeather(defaultCity);
