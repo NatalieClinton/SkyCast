@@ -33,8 +33,11 @@ function getWeather(cityName) {
 
 // Function to display current weather
 function displayCurrentWeather(data) {
+  const weatherIcon = data.weather[0].icon; // Get the weather icon code
+  const weatherDescription = data.weather[0].description; // Get the weather description
   currentWeather.innerHTML = `
-    <h3>${data.name}</h3>
+    <h3 class="current-location">${data.name}</h3>
+    <img src="https://openweathermap.org/img/wn/${weatherIcon}.png" alt="${weatherDescription}" class="current-weather-icon">
     <p>Date: ${new Date(data.dt * 1000).toDateString()}</p>
     <p>Temperature: ${data.main.temp}°C</p>
     <p>Humidity: ${data.main.humidity}%</p>
@@ -69,10 +72,13 @@ function displayForecast(data) {
     const temperature = forecast.main.temp;
     const humidity = forecast.main.humidity;
     const windSpeed = forecast.wind.speed;
+    const weatherIcon = forecast.weather[0].icon; // Get the weather icon code
+    const weatherDescription = forecast.weather[0].description; // Get the weather description
     const forecastElement = document.createElement('div'); // Create a new div element for forecast item
     forecastElement.classList.add('forecast-item'); // Add a class to the div
     forecastElement.innerHTML = `
       <h3>${date}</h3>
+      <img src="https://openweathermap.org/img/wn/${weatherIcon}.png" alt="${weatherDescription}" class="forecast-icon">
       <p>Temperature: ${temperature}°C</p>
       <p>Humidity: ${humidity}%</p>
       <p>Wind Speed: ${windSpeed} m/s</p>

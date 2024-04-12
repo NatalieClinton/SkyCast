@@ -1,3 +1,4 @@
+/* Styles for the overall page body */
 body {
   font-family: Arial, sans-serif;
   margin: 0;
@@ -5,7 +6,8 @@ body {
   background-color: #f4f4f4;
  }
   
-.container {
+/* Styles for the main container */
+ .container {
   max-width: 800px;
   margin: 20px auto;
   padding: 20px;
@@ -15,26 +17,31 @@ body {
   border-radius: 5px;
 }
 
+/* Styles for the headers */
 header {
   margin-bottom: 20px;
 }
 
 h2 {
   text-align: center;
+  color: #0056b3
 }
 
+/* Styles for Logo image */
 img {
   display: flex;
   margin: auto;
   max-width: 100%;
   height: auto;
 }
-  
+ 
+/* Styles for forms */
 form {
   margin-bottom: 20px;
   text-align: center;
 }
 
+/* Styles for forms */
 input[type="text"] {
   padding: 10px;
   width: 60%;
@@ -43,6 +50,7 @@ input[type="text"] {
   font-size: 16px;
 }
 
+/* Styles for buttons */
 button {
   padding: 10px 20px;
   background-color: #007bff;
@@ -57,6 +65,8 @@ button:hover {
     background-color: #0056b3;
 }
 
+
+/* Styles for search history */
 #search-history {
   margin-bottom: 20px;
   text-align: center;
@@ -71,6 +81,8 @@ button:hover {
   background-color: #646464;
 }
 
+
+/* Styles for 5-Day Forecast */
 .forecast-item {
   border: 1px solid #ccc;
   padding: 10px;
@@ -79,6 +91,21 @@ button:hover {
   background-color: #f9f9f9;
 }
 
+.forecast-item h3 {
+  font-size: 24px;
+}
+
+.forecast-icon {
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 10px; 
+  max-width: 40px; 
+  height: auto;
+  filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.8));
+}
+
+
+/* Styles for Current Weather */
 #current-weather {
   background-color: #e9f7fd; 
   border: 1px solid #b6d8e8; 
@@ -93,9 +120,17 @@ button:hover {
 }
 
 #current-weather p {
-  margin-bottom: 5px;
+  margin-bottom: 10px;
 }
 
 #current-weather p:last-child {
   margin-bottom: 0; 
 } 
+
+.current-weather-icon {
+  display: inline-block;
+  vertical-align: middle;
+  max-width: 40px; 
+  height: auto;
+  filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.8));
+}
