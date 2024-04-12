@@ -5,7 +5,6 @@ const apiUrl = 'https://api.openweathermap.org/data/2.5/';
 // DOM elements
 const searchForm = document.getElementById('search-form');
 const cityInput = document.getElementById('city-input');
-const searchHistory = document.getElementById('search-history');
 const currentWeather = document.getElementById('current-weather');
 const futureWeather = document.getElementById('future-weather');
 const majorCities = document.getElementById('major-cities');
@@ -26,7 +25,6 @@ function getWeather(cityName) {
     .then(response => response.json()) // Parse response as JSON
     .then(data => {
       displayCurrentWeather(data); // Display current weather
-      saveSearchHistory(cityName); // Save search history
       getForecast(cityName); // Fetch and display weather forecast
     })
     .catch(error => console.error('Error fetching weather:', error)); // Log any errors
@@ -41,14 +39,6 @@ function displayCurrentWeather(data) {
     <p>Humidity: ${data.main.humidity}%</p>
     <p>Wind Speed: ${data.wind.speed} m/s</p>
   `;
-}
-
-// Function to save search history
-function saveSearchHistory(cityName) {
-  const button = document.createElement('button'); // Create a new button element
-  button.textContent = cityName; // Set button text to city name
-  button.addEventListener('click', () => getWeather(cityName)); // Add click event listener to fetch weather
-  searchHistory.appendChild(button); // Append button to search history
 }
 
 // Function to fetch weather forecast
