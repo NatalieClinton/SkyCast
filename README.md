@@ -21,4 +21,4 @@ I created this repository which includes all the neccesary files, such as HTML, 
 
 [GitHub Repository](https://github.com/NatalieClinton/SkyCast)
 
-[Deployed Application](https://natalieclinton.github.io/Skycast/)
+[Deployed Application](https://natalieclinton.github.io/SkyCast/)
