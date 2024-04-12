@@ -5,9 +5,9 @@ const apiUrl = 'https://api.openweathermap.org/data/2.5/';
 // DOM elements
 const searchForm = document.getElementById('search-form');
 const cityInput = document.getElementById('city-input');
+const searchHistory = document.getElementById('search-history');
 const currentWeather = document.getElementById('current-weather');
 const futureWeather = document.getElementById('future-weather');
-const majorCities = document.getElementById('major-cities');
 
 // Event listener for form submission
 searchForm.addEventListener('submit', function(event) {
@@ -25,6 +25,7 @@ function getWeather(cityName) {
     .then(response => response.json()) // Parse response as JSON
     .then(data => {
       displayCurrentWeather(data); // Display current weather
+      saveSearchHistory(cityName); // Save search history
       getForecast(cityName); // Fetch and display weather forecast
     })
     .catch(error => console.error('Error fetching weather:', error)); // Log any errors
@@ -33,12 +34,20 @@ function getWeather(cityName) {
 // Function to display current weather
 function displayCurrentWeather(data) {
   currentWeather.innerHTML = `
-    <h2>${data.name}</h2>
+    <h3>${data.name}</h3>
     <p>Date: ${new Date(data.dt * 1000).toDateString()}</p>
     <p>Temperature: ${data.main.temp}°C</p>
     <p>Humidity: ${data.main.humidity}%</p>
     <p>Wind Speed: ${data.wind.speed} m/s</p>
   `;
+}
+
+// Function to save search history
+function saveSearchHistory(cityName) {
+  const button = document.createElement('button'); // Create a new button element
+  button.textContent = cityName; // Set button text to city name
+  button.addEventListener('click', () => getWeather(cityName)); // Add click event listener to fetch weather
+  searchHistory.appendChild(button); // Append button to search history
 }
 
 // Function to fetch weather forecast
@@ -60,7 +69,6 @@ function displayForecast(data) {
     const temperature = forecast.main.temp;
     const humidity = forecast.main.humidity;
     const windSpeed = forecast.wind.speed;
-
     const forecastElement = document.createElement('div'); // Create a new div element for forecast item
     forecastElement.classList.add('forecast-item'); // Add a class to the div
     forecastElement.innerHTML = `
@@ -72,14 +80,6 @@ function displayForecast(data) {
     futureWeather.appendChild(forecastElement); // Append forecast item to future weather
   }
 }
-
-// Event listener for major cities buttons
-majorCities.addEventListener('click', function(event) {
-  if (event.target.tagName === 'BUTTON') { // Check if clicked element is a button
-    const cityName = event.target.textContent; // Get city name from button text content
-    getWeather(cityName); // Fetch weather data for the city
-  }
-});
 
 // Default city to display forecast
 const defaultCity = 'Toronto';

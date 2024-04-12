@@ -18,31 +18,25 @@
 
   <main>
     <div class="container">
-    <!-- Search form -->
-    <form id="search-form">
-      <input type="text" id="city-input" placeholder="Enter city name">
-      <button type="submit">Search</button>
-    </form>
-    <!-- Major cities -->
-       <div id="major-cities">
-        <button onclick="getWeather('New York')">New York</button>
-        <button onclick="getWeather('Los Angeles')">Los Angeles</button>
-        <button onclick="getWeather('London')">London</button>
-        <button onclick="getWeather('Paris')">Paris</button>
-        <button onclick="getWeather('Tokyo')">Tokyo</button>
-        <button onclick="getWeather('Sydney')">Sydney</button>
-        <button onclick="getWeather('Moscow')">Moscow</button>
-        <button onclick="getWeather('Dubai')">Dubai</button>
-        <button onclick="getWeather('Beijing')">Beijing</button>
-        <button onclick="getWeather('Rio de Janeiro')">Rio de Janeiro</button>
-      </div>
-    <!-- Display search history, current weather, and future weather -->
-    <div id="search-history"></div>
-    <div id="current-weather"></div>
-    <div id="future-weather"></div>
-  </div>
-</div>
-</main>
+      <!-- Search form -->
+      <form id="search-form">
+        <input type="text" id="city-input" placeholder="Enter city name">
+        <button type="submit">Search</button>
+      </form>
+      
+      <!-- Search History -->
+      <h4>Search History</h4>
+      <div id="search-history"></div>
+
+      <!-- Current Weather -->
+      <h2>Current Weather</h2>
+      <div id="current-weather"></div>
+
+      <!-- 5-Day Forecast -->
+      <h2>5-Day Forecast</h2>
+      <div id="future-weather"></div>
+    </div>
+  </main>
 
   <!-- JavaScript file for fetching and displaying weather data -->
   <script src="./assets/js/script.js"></script>

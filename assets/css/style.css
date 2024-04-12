@@ -15,9 +15,19 @@ body {
     border-radius: 5px;
   }
 
+header {
+    margin-bottom: 20px;
+}
+
+h2 {
+text-align: center;
+}
+
   img {
-    display: block;
+    display: flex;
     margin: auto;
+    max-width: 100%;
+    height: auto;
   }
   
   form {
@@ -47,6 +57,15 @@ button:hover {
     background-color: #0056b3;
 }
 
+#search-history {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+#search-history button {
+  margin-right: 5px;
+}
+
 #major-cities {
     margin-bottom: 20px;
     text-align: center;
@@ -61,11 +80,6 @@ button:hover {
     background-color: #117a8b;
 }
 
-#search-history {
-    margin-bottom: 20px;
-    text-align: center;
-}
-
 .forecast-item {
     border: 1px solid #ccc;
     padding: 10px;
@@ -73,3 +87,4 @@ button:hover {
     border-radius: 5px;
     background-color: #f9f9f9;
 }
+
